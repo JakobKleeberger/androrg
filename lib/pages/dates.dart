@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Widget datePage(String display, BuildContext context) => Center(
@@ -6,7 +5,7 @@ Widget datePage(String display, BuildContext context) => Center(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text('$display', style: Theme.of(context).textTheme.headlineMedium),
+        Text(display, style: Theme.of(context).textTheme.headlineMedium),
       ],
     ),
   ),

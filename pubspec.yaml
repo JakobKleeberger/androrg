@@ -38,7 +38,7 @@ dependencies:
   file_picker: ^10.1.9
   org_flutter: ^9.7.0
   appflowy_editor: ^0.1.12
-  kalender: ^0.8.0
+  syncfusion_flutter_calendar: ^29.2.7
 
 dev_dependencies:
   flutter_test:

@@ -5,7 +5,7 @@ import 'package:org_flutter/org_flutter.dart';
 class Event {
   String title = "";
   late DateTime date;
-  late HashMap<OrgSimpleTimestamp, int> timestampsInEvent;
+  late DateTime endDate;
 
   getDate(OrgNode timestamp) {
     switch (timestamp.runtimeType) {
@@ -22,6 +22,7 @@ class Event {
           date = DateTime(
               int.parse(orgDate.year), int.parse(orgDate.month), int.parse(orgDate.day));
         }
+        endDate = date.add(Duration(hours: 1));
     // case OrgDateRangeTimestamp:
     // // TODO: Handle this case.
     //   throw UnimplementedError();
