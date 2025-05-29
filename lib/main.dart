@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:my_app/pages/dates.dart';
-import 'package:my_app/pages/second.dart';
+import 'package:my_app/pages/EditorPage.dart';
+import 'package:my_app/pages/calendarPage.dart';
 import 'package:org_parser/org_parser.dart';
 
 void main() {
@@ -86,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    pages = [datePage(_orgContent, context), secondPage(_orgContent, context)];
+    pages = [CalendarPage(), secondPage(_orgContent, context)];
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //

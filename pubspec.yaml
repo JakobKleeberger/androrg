@@ -36,6 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.8
   org_parser: ^9.7.3
   file_picker: ^10.1.9
+  org_flutter: ^9.7.0
+  appflowy_editor: ^0.1.12
+  kalender: ^0.8.0
 
 dev_dependencies:
   flutter_test:
