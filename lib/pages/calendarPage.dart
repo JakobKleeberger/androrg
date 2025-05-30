@@ -32,10 +32,10 @@ class _CalendarPageState extends State<CalendarPage> {
     });
   }
 
-  void calendarTapped(CalendarTapDetails calendarTapDetails) {
+  void calendarLongPress(CalendarLongPressDetails calendarLongPress) {
     if (calendarController.view == CalendarView.month) {
       setState(() {
-        calendarController.displayDate = calendarTapDetails.date;
+        calendarController.displayDate = calendarLongPress.date;
         calendarController.view = CalendarView.day;
       });
     }
@@ -52,12 +52,13 @@ class _CalendarPageState extends State<CalendarPage> {
           CalendarView.day,
           CalendarView.schedule,
         ],
+        timeSlotViewSettings: TimeSlotViewSettings(timeFormat: "H:mm"),
         controller: calendarController,
         monthViewSettings: MonthViewSettings(
-          showAgenda: false,
+          showAgenda: true,
           appointmentDisplayMode: MonthAppointmentDisplayMode.appointment,
         ),
-        onTap: calendarTapped,
+        onLongPress: calendarLongPress,
         dataSource: getEventDataSource(orgDocument),
       ),
     );
