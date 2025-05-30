@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:my_app/pages/EditorPage.dart';
 import 'package:my_app/pages/calendarPage.dart';
 import 'package:org_parser/org_parser.dart';
@@ -86,30 +88,38 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    pages = [CalendarPage(), secondPage(_orgContent, context)];
+    pages = [CalendarPage(), EditorPage()];
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: pages[index],
-      floatingActionButton: InkWell(
-        onLongPress: _load_org_file_long,
-        child: FloatingActionButton(
-          onPressed: _load_org_file,
-          tooltip: 'Loads org file',
-          child: const Icon(Icons.switch_account_outlined),
+    return MaterialApp(
+      localizationsDelegates: const [
+        GlobalWidgetsLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        FlutterQuillLocalizations.delegate,
+      ],
+      home: Scaffold(
+        appBar: AppBar(
+          // TRY THIS: Try changing the color here to a specific color (to
+          // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+          // change color while the other colors stay the same.
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text("Androrg"),
+        ),
+        body: pages[index],
+        floatingActionButton: InkWell(
+          onLongPress: _load_org_file_long,
+          child: FloatingActionButton(
+            onPressed: _load_org_file,
+            tooltip: 'Loads org file',
+            child: const Icon(Icons.switch_account_outlined),
+          ),
         ),
       ),
     );
