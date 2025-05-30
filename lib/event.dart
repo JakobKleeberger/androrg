@@ -22,14 +22,16 @@ class Event {
         endDate = startDate.add(Duration(hours: 1));
         break;
       case OrgDateRangeTimestamp:
-        OrgDateRangeTimestamp dateRangeTimestamp = timestamp as OrgDateRangeTimestamp;
+        OrgDateRangeTimestamp dateRangeTimestamp =
+            timestamp as OrgDateRangeTimestamp;
         startDate = dateRangeTimestamp.start.dateTime;
         if (dateRangeTimestamp.start.time != null) isAllDay = false;
         endDate = dateRangeTimestamp.end.dateTime;
         if (dateRangeTimestamp.end.time != null) isAllDay = false;
         break;
       case OrgTimeRangeTimestamp:
-        OrgTimeRangeTimestamp timeRangeTimestamp = timestamp as OrgTimeRangeTimestamp;
+        OrgTimeRangeTimestamp timeRangeTimestamp =
+            timestamp as OrgTimeRangeTimestamp;
         startDate = timeRangeTimestamp.startDateTime;
         endDate = timeRangeTimestamp.endDateTime;
         isAllDay = false;
