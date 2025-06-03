@@ -42,7 +42,6 @@ class EventDataSource extends CalendarDataSource {
 
 EventDataSource getEventDataSource(OrgDocument orgDocument) {
   List<Event> events = _parseOrg(orgDocument);
-  for (Event event in events) {}
   return EventDataSource(events);
 }
 
@@ -83,7 +82,9 @@ List<Event> _parseOrg(OrgDocument orgDocument) {
       return true;
     });
 
-    events.add(event);
+    if (event.startDate != null) {
+      events.add(event);
+    }
     return true;
   });
   return events;

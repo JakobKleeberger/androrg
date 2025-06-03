@@ -5,10 +5,10 @@ import 'package:org_parser/org_parser.dart';
 
 class Event {
   String title = "";
-  late DateTime startDate;
-  late DateTime endDate;
+  DateTime? startDate;
+  DateTime? endDate;
   bool isAllDay = true;
-  late List<String> tags;
+  List<String>? tags;
   Color color = Color.fromRGBO(100, 100, 100, 50);
 
   getDate(OrgNode timestamp) {
@@ -19,7 +19,7 @@ class Event {
         OrgTime? orgTime = simpleTimestamp.time;
         startDate = simpleTimestamp.dateTime;
         if (orgTime != null) isAllDay = false;
-        endDate = startDate.add(Duration(hours: 1));
+        endDate = startDate?.add(Duration(hours: 1));
         break;
       case OrgDateRangeTimestamp:
         OrgDateRangeTimestamp dateRangeTimestamp =
